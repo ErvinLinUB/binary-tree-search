@@ -19,6 +19,7 @@ bool searchRecursive(BSTNode* root, int key);
 bool searchIterative(BSTNode* root, int key);
 void inorderPrint(BSTNode* root);
 void freeTree(BSTNode* root);
+BSTNode* minValueNode(BSTNode* root);
 
 int main() {
     BSTNode* root = nullptr;
@@ -133,4 +134,12 @@ void freeTree(BSTNode* root) {
     freeTree(root->left);
     freeTree(root->right);
     delete root;
+}
+
+BSTNode* minValueNode(BSTNode* root) {
+    BSTNode* curr = root;
+    while (curr && curr->left) {
+        curr = curr->left;
+    }
+    return curr;
 }
